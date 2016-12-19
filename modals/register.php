@@ -23,8 +23,9 @@
 	<input type="text" class="captcha form-control" maxlength="4"  name="captcha" placeholder="<?php echo $lang[54] ?>">
   </div>
   <?php }?>
-  
-  <button type="submit" class="btn btn-primary btn-block" onclick="request('register','RegisterResults','register_form');"><?php echo $lang[39] ?></button>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary btn-block" onclick="request('register','RegisterResults','register_form');"><?php echo $lang[39] ?></button>
+  </div>
   
 </form>
 	
