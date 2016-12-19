@@ -29,5 +29,8 @@
 ###### `جوال`
 ![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/Android-screencapture.png)
 
+###### `لوحة الكترونية`
+![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/Tablets.png)
+
 ###### `كمبيوتر محمول`
 ![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/MacBook-screencapture.png)
