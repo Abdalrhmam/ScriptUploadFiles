@@ -1,5 +1,5 @@
 # سكربت رفع الملفات
-السكربت المثالي لرفع الملفات
+ :+1: السكربت المثالي لرفع الملفات
 
 # مميزات السكربت
 - متعدد اللغات
@@ -26,7 +26,8 @@
 - دعم المتصفح انترنت اكسبلورر 8
 
 # صور 
-`جوال`
+###### `جوال`
 ![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/Android-screencapture.png)
-`كمبيوتر محمول`
+
+###### `كمبيوتر محمول`
 ![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/MacBook-screencapture.png)
