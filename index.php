@@ -172,7 +172,7 @@ var IsLogin     = Boolean('<?php echo (bool)IsLogin ?>'),
 	multiple    = Boolean('<?php echo (bool)multiple ?>'),
 	IsGetEmpty  = Boolean('<?php echo (bool)GetIsEmpty ?>'),
 	IsCaptcha   = Boolean('<?php echo (bool)EnableCaptcha ?>'),
-	
+	DirectoryChanged  = Boolean('<?php echo (bool)DirectoryChanged ?>'),
     UpdateBrowser  = Boolean('<?php echo (bool)UpdateBrowser ?>'),
 	IsGetFiles     = Boolean('<?php echo (bool)(isGet('files')) ?>'),
 	IsGetProfile   = Boolean('<?php echo (bool)(isGet('profile')) ?>'),
@@ -184,7 +184,7 @@ var IsLogin     = Boolean('<?php echo (bool)IsLogin ?>'),
 	IsGetForgot    = Boolean('<?php echo (bool)(isGet('forgot')) ?>'),
 	IsGetContact   = Boolean('<?php echo (bool)(isGet('contact')) ?>'),
 	extensions_str = '<?php echo defined('Extensions_Str') ? Extensions_Str : '' ?>',
-	
+
 	
 	filetypes   = [ <?php echo "'".implode(explode(",",extensions),"','")."'" ?>],   
     configSize  = parseInt('<?php echo MaxFileSize /1024 ?>'),
