@@ -1418,8 +1418,8 @@ function delete_file($id,$deleteHash,$directory='..')
 	Sql_Delete_File($id);
 	Sql_Delete_Stat_File_Id($id);
 	Sql_Delete_Report_File_Id($id);
-	$_SESSION['login']['user_space_used'] = Get_user_space_used();
-	$_SESSION['login']['user_space_left'] = user_space_max-(int)$_SESSION['login']['user_space_used'];
+	IsLogin ? $_SESSION['login']['user_space_used'] = Get_user_space_used() : '';
+	IsLogin ? $_SESSION['login']['user_space_left'] = user_space_max-(int)$_SESSION['login']['user_space_used'] : '';
 	return true ;
 	} else return false ;
 }

@@ -719,8 +719,8 @@ if(isset($_GET['delete']))
 	Sql_Delete_File($_GET['id']);
 	Sql_Delete_Stat_File_Id($_GET['id']);
 	Sql_Delete_Report_File_Id($_GET['id']);
-	$_SESSION['login']['user_space_used'] = (int)Get_user_space_used();
-	$_SESSION['login']['user_space_left'] = user_space_max-(int)$_SESSION['login']['user_space_used'];
+	IsLogin ? $_SESSION['login']['user_space_used'] = (int)Get_user_space_used() : '';
+	IsLogin ? $_SESSION['login']['user_space_left'] = user_space_max-(int)$_SESSION['login']['user_space_used'] : '';
 	PrintArray(array( 'status'=> true , 'success_msg' => $lang[178]));
 	} else PrintArray(array( 'status'=> false ,'success_msg' => $lang[179]));
 	
