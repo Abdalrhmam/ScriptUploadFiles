@@ -232,7 +232,7 @@ $_UploadFileName = _Upload_name().$ext;
 $extensions      = explode(",",extensions);
 $orgfilename     = protect($Upload->getFileName()); /*(isset($_FILES["uploadfile"]["name"])) ? protect(basename($_FILES["uploadfile"]["name"])) : '';*/
 $passwordfile    = (isset($_POST['passwordfile'])) ? protect($_POST['passwordfile']) : '';
-$code            = (isset($_POST['code'])) ? $_POST['code'] : '' ;
+$code            = (isset($_POST['code'])) ? protect($_POST['code']) : '' ;
 $ispublic        = (isset($_POST['ispublic']) && IsLogin ) ? (int)$_POST['ispublic'] : 1 ;
 
 (defined('HashCode') && HashCode !== $code ) ? IePrintArray(array('success' => false, 'msg' => $lang[103].' / HashCode' ,'footerInfo'=> FooterInfo('..'.folderupload) )) : '' ;  
@@ -242,7 +242,7 @@ $ispublic        = (isset($_POST['ispublic']) && IsLogin ) ? (int)$_POST['ispubl
 //if(Sql_file_exsist($_UploadFileName))
 	if(file_exists('..'. uploadDir.'/'.$_UploadFileName))
 	{
-		sleep(1); 
+		sleep(1); // sleep for 1 second
 		$_UploadFileName = _Upload_name().$ext;
 		
 	}
@@ -328,7 +328,7 @@ if(isset($_GET['deletecomment']))
 {
 AJAX_check();	
 $id = (int)$_GET['deletecomment'];	
-Sql_query( "DELETE FROM `comments`  WHERE `id`= '$id' AND `user_id` = '".UserID."'" ) ;	
+(IsAdmin) ? Sql_query( "DELETE FROM `comments`  WHERE `id`= '$id'" ) : Sql_query( "DELETE FROM `comments`  WHERE `id`= '$id' AND `user_id` = '".UserID."'" ) ;	
 PrintArray(array('icon' => glyphiconOk(affected_rows()) ));
 }
 
@@ -451,11 +451,12 @@ if(isset($_GET['login']))
 {
 AJAX_check();
 $username = protect($_POST['Email']);
-$Password = md5(protect($_POST['Password']));
+$password = protect($_POST['Password']);
+$md5pass  = md5($password);
 
-$sql = Sql_query("SELECT * FROM `users` WHERE `username`='$username' and `password`='$Password'");
+$sql = Sql_query("SELECT * FROM `users` WHERE `username`='$username' and `password`='$md5pass'");
 if(EnableCaptcha && $_POST['captcha']!==$_SESSION['settings']['code']){ $data['error_msg'] = error($lang[90]);}
-elseif(empty($username) or empty($Password)) { $data['error_msg'] = error($lang[91]); }
+elseif(empty($username) or empty($password)) { $data['error_msg'] = error($lang[91]); }
 elseif(num_rows($sql)>0) {
 	$row = mysqli_fetch_array($sql);
 	if($row['status'] == 2) {
@@ -501,7 +502,8 @@ if(isset($_GET['register']))
 {
 AJAX_check();	
 $username = protect($_POST['Username']);
-$password = md5(protect($_POST['Password']));
+$password = protect($_POST['Password']);
+$md5pass  = md5($password);
 $email    = protect($_POST['Email']);
 
 $check_usern = Sql_query("SELECT * FROM `users` WHERE `username`='$username'");
@@ -513,7 +515,7 @@ elseif(!isValidUsername($username)) { $data['error_msg'] = error($lang[92]); }
 elseif(num_rows($check_email)>0) { $data['error_msg'] = error($lang[97]); }
 elseif(!isValidEmail($email)) { $data['error_msg'] = error($lang[93]); }
 else { /*strtotime(date('Y-m-d H:i:s')*/
-	$insert_user   = Sql_query("INSERT INTO `users` (`username`, `password`, `email`, `level`, `last_visit`,`register_date`, `last_ip`) VALUES ( '$username', '$password', '$email', '0', '".timestamp()."','".timestamp()."','".iplong()."');");
+	$insert_user   = Sql_query("INSERT INTO `users` (`username`, `password`, `email`, `level`, `last_visit`,`register_date`, `last_ip`) VALUES ( '$username', '$md5pass', '$email', '0', '".timestamp()."','".timestamp()."','".iplong()."');");
 	$insert_id     = Sql_Last_query_id();
 	$insert_dir    = folderupload .'/'.$username;
 	$insert_folder = Sql_query("INSERT INTO `folders` (`userId`, `folderName`, `isPublic`, `accessPassword`, `date_added`) VALUES ( '$insert_id', '$insert_dir', '1', '', '".timestamp()."');");
@@ -719,6 +721,7 @@ if(isset($_GET['delete']))
 	Sql_Delete_File($_GET['id']);
 	Sql_Delete_Stat_File_Id($_GET['id']);
 	Sql_Delete_Report_File_Id($_GET['id']);
+	Sql_Delete_Comment_Id($_GET['id']);
 	IsLogin ? $_SESSION['login']['user_space_used'] = (int)Get_user_space_used() : '';
 	IsLogin ? $_SESSION['login']['user_space_left'] = user_space_max-(int)$_SESSION['login']['user_space_used'] : '';
 	PrintArray(array( 'status'=> true , 'success_msg' => $lang[178]));
@@ -748,7 +751,8 @@ if(isset($_GET['delete_selected']))
 			if(Sql_Delete_File($id))
 				if(Sql_Delete_Report_File_Id($id))
 					if(Sql_Delete_Stat_File_Id($id))
-						$result[]=  $id ;
+						if(Sql_Delete_Comment_Id($id))
+							$result[]=  $id ;
 			}
 	PrintArray(array('success_msg' => $result ,'success_totalpages' => Sql_totalpages() ));	
 	}
@@ -767,7 +771,8 @@ PrintArray(array('success_msg' => $lang[104]));
 if(isset($_GET['edituser'])){
 AJAX_check();	
 
-$password = md5(protect($_POST['password']));
+$password = protect($_POST['password']);
+$md5pass  = md5($password);
 $email    = protect($_POST['email']);
 $id       = (int) UserID ;
 
@@ -779,7 +784,7 @@ elseif(num_rows($check_email)>0) { $data['error_msg'] = error($lang[97]); }
 elseif(!isValidEmail($email)) { $data['error_msg'] = error($lang[93]); }
 elseif(isset($_SESSION['login'])) //['status']
 {
-Sql_query("UPDATE `users` SET `password` = '$password' , `email` = '$email' WHERE `id` ='$id';");
+Sql_query("UPDATE `users` SET `password` = '$md5pass' , `email` = '$email' WHERE `id` ='$id';");
 $data['success_msg'] = success($lang[178]);
 unset($_SESSION['login']);		
 } else $data['error_msg'] = error($lang[179]);	

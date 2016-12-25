@@ -183,7 +183,7 @@ function isInt(value) {
 		_author = _Copyright_ ; 
 	
 	if( _author.indexOf(_Copyright_) == -1 ){
-		bootbox.alert({ size: "small",title: "تنبيه",message:'لا يمكن تغيير حقوق المبرمج ، سيستمر هذا التنبيه في الضهور' , buttons: {ok: {label: _Yes}} });
+		bootbox.alert({ size: "small",title: "تنبيه",message:'لا يمكن تغيير حقوق المبرمج ، سيستمر هذا التنبيه في الظهور' , buttons: {ok: {label: _Yes}} });
 		$('#author').html(_Copyright_); 
   }
 }

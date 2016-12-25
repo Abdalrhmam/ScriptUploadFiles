@@ -1,4 +1,5 @@
 <?php if(!isset($conn)) die('<title>Access Denied</title><i>This page cannot be accessed directly'); ?>
+<?php define('footerTxt',FooterInfo('.'.folderupload)) ?>
 <div class="container" id="myFooter">
  <div class="row">
     <div class="col-sm-3 col-md-3"> </div>
@@ -7,7 +8,7 @@
       <div style="padding: 15px;">
         <div class="text-muted" id="footer"> 
 		
-		 <span id="footerTxt"><?php echo FooterInfo('.'.folderupload) ?></span>
+		 <span id="footerTxt"><?php echo footerTxt ?></span>
 		 <div class="hidden-xs pull-<?php directionDiv(); ?>">
 		 <ul class="list-inline">
 		   <li><a href="<?php echo facebook; ?>" target="_blank"><i class="btn btn-facebook btn-circle icon-facebook"></i></a></li>

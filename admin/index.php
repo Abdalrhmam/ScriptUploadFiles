@@ -132,9 +132,8 @@ print '<pre style="text-align: left;direction: ltr; ">' . print_r(get_defined_va
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-toggle.min.css">  
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-checkbox.min.css">
   
-  
-  <?php if(isset($_GET['comments']) || isset($_GET['settings']) || isset($_GET['publicity']) || isset($_GET['plans']) || isset($_GET['users']) || isset($_GET['folders']) || isset($_GET['reports']) ) { ?>
-<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-tagsinput.css">
+  <?php if(isset($_GET['comments']) || isset($_GET['settings']) || isset($_GET['publicity']) || isset($_GET['plans']) || isset($_GET['users']) || isset($_GET['folders']) || isset($_GET['reports']) ) { ?>  
+  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-tagsinput.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-select.min.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/summernote.min.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-colorselector.min.css">
@@ -203,29 +202,28 @@ print '<pre style="text-align: left;direction: ltr; ">' . print_r(get_defined_va
   <script src="../assets/js/global.min.js" type="text/javascript"></script>
   
   
-  <?php if(isset($_GET['files']) || isset($_GET['reports']) || isset($_GET['statistics']) ) { ?>
-<script src="../assets/js/simpleajaxuploader.min.js" type="text/javascript"></script>
+  <?php if(isset($_GET['files']) || isset($_GET['reports']) || isset($_GET['statistics']) ) { ?>  
+  <script src="../assets/js/simpleajaxuploader.min.js" type="text/javascript"></script>
   <script src="../assets/js/bootstrap-toggle.min.js" type="text/javascript"></script>
   <?php } ?>
 
 
-  <?php if(AdminGetIsEmpty && (!IsIeBrowser())){ ?>
-	<script src="../assets/js/chart.min.js" type="text/javascript"></script> 
+  <?php if(AdminGetIsEmpty && (!IsIeBrowser())){ ?>  
+  <script src="../assets/js/chart.min.js" type="text/javascript"></script> 
   <?php } ?>
   
    <?php if(AdminGetIsEmpty){ ?>
 	<script src="../assets/js/countup.min.js" type="text/javascript"></script> 
   <?php } ?>
   
-  <?php if(isset($_GET['comments']) || isset($_GET['settings']) || isset($_GET['publicity']) || isset($_GET['plans']) || isset($_GET['users']) || isset($_GET['folders']) || isset($_GET['reports'])  ) { ?>
-<script src="../assets/js/bootstrap-tagsinput.min.js" type="text/javascript"></script>
-
+  <?php if(isset($_GET['comments']) || isset($_GET['settings']) || isset($_GET['publicity']) || isset($_GET['plans']) || isset($_GET['users']) || isset($_GET['folders']) || isset($_GET['reports'])  ) { ?>  
+  <script src="../assets/js/bootstrap-tagsinput.min.js" type="text/javascript"></script>
   <script src="../assets/js/summernote.min.js" type="text/javascript"></script>
   <script src="../assets/js/bootstrap-select.min.js" type="text/javascript"></script>
   <script src="../assets/js/bootstrap-colorselector.min.js" type="text/javascript"></script>
 
-  <?php if( InterfaceLanguage=='ar'){ ?>
-<script src="../assets/js/i18n/defaults-ar_AR.js" type="text/javascript"></script>
+  <?php if( InterfaceLanguage=='ar'){ ?>  
+  <script src="../assets/js/i18n/defaults-ar_AR.js" type="text/javascript"></script>
   <script src="../assets/js/i18n/summernote-ar-AR.js" type="text/javascript"></script>
   <?php } } ?>
   

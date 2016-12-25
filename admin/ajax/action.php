@@ -702,7 +702,8 @@ if(isset($_GET['delete_selected']))
 			if(Sql_Delete_File($id))
 				if(Sql_Delete_Report_File_Id($id))
 					if(Sql_Delete_Stat_File_Id($id))
-						$result[]=  $id ;
+						if(Sql_Delete_Comment_Id($id))
+							$result[]=  $id ;
 			}
 	PrintArray(array('success_msg' => $result ,'success_totalpages' => ceil(num_rows(Sql_query("SELECT 1 FROM `files`"))/rowsperpage) ));	
 	}
@@ -812,6 +813,7 @@ if(isset($_GET['delete_folder']))
 	Sql_Delete_File($_GET['delete_file_id']);
 	Sql_Delete_Report_File_Id($_GET['delete_file_id']);
 	Sql_Delete_Stat_File_Id($_GET['delete_file_id']);
+	Sql_Delete_Comment_Id($_GET['delete_file_id']);
 	PrintArray(array('success_msg' => $lang[178]));
 	} else PrintArray(array('success_msg' => $lang[179]));	
 } 

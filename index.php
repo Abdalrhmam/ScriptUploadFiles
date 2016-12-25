@@ -32,7 +32,7 @@ require_once ('./includes/afterincludes.php');
 	<link href="./assets/css/fontello.min.css" rel="stylesheet" type="text/css">
 	<link href="./assets/css/sticky.min.css" rel="stylesheet" type="text/css" />
 	<link href="./includes/styles.php" rel="stylesheet" type="text/css">
-	<?php if(animated){ ?>
+	<?php if(animated){ ?>    
 	<link href="./assets/css/animate.min.css" rel="stylesheet" type="text/css">
 	<?php } ?>
 	<?php if(isGet('download') || isGet('files')){ ?>
@@ -40,11 +40,10 @@ require_once ('./includes/afterincludes.php');
 	<link href="./assets/css/platforms.min.css" rel="stylesheet" type="text/css">
 	<link href="./assets/css/bootstrap-checkbox.min.css" rel="stylesheet" type="text/css">
 	<?php } ?>
-	<?php if(GetIsEmpty){ ?>
+	<?php if(GetIsEmpty){ ?>    
 	<link href="./assets/css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css">
 	<?php } ?>
-	<?php  /*include_once ('./includes/styles.php') ;*/ ?>
-	<?php if(IsRtL()){ ?>
+	<?php if(IsRtL()){ ?>    
 	<link href="./assets/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css">
 	<?php } ?>
 	
@@ -216,6 +215,7 @@ var IsLogin     = Boolean('<?php echo (bool)IsLogin ?>'),
 	ErrorSzMsg  = '<?php echo $lang[110] ?>', 
 	ErrorAborted= '<?php echo $lang[233] ?>', 
 	ExtensionsSt= '<?php echo extensions ; ?>',
+	FooterTxt   = '<?php echo footerTxt ; ?>',
 	UrlMsg      = '<?php echo $lang[18] ?>', 
 	TitleClsMsg = '<?php echo $lang[64] ?>', 	
 	UrlDeltMsg  = '<?php echo $lang[26] ?>', 

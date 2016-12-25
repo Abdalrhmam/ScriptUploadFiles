@@ -23,7 +23,7 @@ session_start();
  define('FolderUploadName',(isset($_SESSION['login']['folder_name'])) ? $_SESSION['login']['folder_name'] : '') ;	
  define('IsAdmin', (isset($_SESSION['login']['user_level']))  ? (bool)$_SESSION['login']['user_level'] : false) ;
  define('UserName', (isset($_SESSION['login']['username']))   ? $_SESSION['login']['username'] : '') ;
- define('UserEmail',(isset($_SESSION['login']['user_email'])) ?  $_SESSION['login']['user_email'] : '') ;
+ define('UserEmail',(isset($_SESSION['login']['user_email'])) ? $_SESSION['login']['user_email'] : '') ;
  define('Plan_Id', (isset($_SESSION['login']['plan_id']))     ? $_SESSION['login']['plan_id'] : 0); 
  define('PlanId',(Plan_Id==0 && IsLogin) ? 3 : Plan_Id); 
 	

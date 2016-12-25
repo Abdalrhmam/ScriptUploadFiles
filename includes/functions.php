@@ -871,6 +871,13 @@ $id = (int)$id;
 return Sql_query( "DELETE FROM `reports`  WHERE `file_id`= '$id'" ) ;	
 }
 
+function Sql_Delete_Comment_Id($id)
+{
+$id = (int)$id;
+return Sql_query( "DELETE FROM `comments`  WHERE `file_id`= '$id'" ) ;	
+}
+
+
 function Sql_Update_Report($id)
 {
 $id = (int)$id;
@@ -1418,6 +1425,7 @@ function delete_file($id,$deleteHash,$directory='..')
 	Sql_Delete_File($id);
 	Sql_Delete_Stat_File_Id($id);
 	Sql_Delete_Report_File_Id($id);
+	Sql_Delete_Comment_Id($id);
 	IsLogin ? $_SESSION['login']['user_space_used'] = Get_user_space_used() : '';
 	IsLogin ? $_SESSION['login']['user_space_left'] = user_space_max-(int)$_SESSION['login']['user_space_used'] : '';
 	return true ;
@@ -1459,6 +1467,7 @@ function delete_file_without_confirmation($id,$directory='..')
 	Sql_Delete_File($id);
 	Sql_Delete_Stat_File_Id($id);
 	Sql_Delete_Report_File_Id($id);
+	Sql_Delete_Comment_Id($id);
 	return true ;
 	} else return false ;
 }

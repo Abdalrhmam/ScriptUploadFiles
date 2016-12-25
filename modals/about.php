@@ -8,7 +8,7 @@
 	
         <div id="Tababout" class="tab-pane fade in active">
 			<div class="form-group">
-			  <div class="well" id="aboutCopyright">
+			  <div class="well" id="WellCopyright">
                 <center><h3><?php  echo SiteName()  ?></h3>
 				   <code style="font-size: 18px;"><?php  echo scriptversion  ?></code> 
 	               <h4 class=""><?php  echo description  ?></h4>
@@ -17,9 +17,9 @@
 	            <hr>
                 <!-- تحذير لا تقم بحذف الحقوق والا سيستمر تنبيه في الظهور الى غاية اعادة الحقوق الى سابق عهدها -->
                     <h4><?php echo $lang[12] ?> : <br>
-                    <i><?php echo 'onexite' ?></i></h4>
+                    <i id="aboutCopyright"><?php echo 'onexite' ?></i></h4>
                     <h4><?php echo $lang[40] ?> : <br>
-                    <i><?php echo 'onexite@gmail.com' ?></i></h4>
+                    <i id="emailCopyright"><?php echo 'onexite@gmail.com' ?></i></h4>
 					<hr>
 					<div class="table-responsive <?php echo ClassAnimated ?> swing">
 					<table class="table table-striped">
@@ -30,7 +30,7 @@
 					  <tr><td>bootpag.js</td><td>1.0.7</td><td>botmonster@7items.com</td></tr>
 					  <tr><td>Summernote.js</td><td>0.8.2</td><td>Alan Hong</td></tr>
 					  <tr><td>Bootstrap.js</td><td>3.3.7</td><td>Twitter, Inc</td></tr>
-					  <tr><td>Functions.js</td><td>0.9</td><td>onexite</td></tr>
+					  <tr><td>Functions.js</td><td>0.9.1</td><td>onexite</td></tr>
 					  <tr><td>Bootstrap-select.js</td><td>1.12.1</td><td>caseyjhol</td></tr>
 					  <tr><td>bootstrap-checkbox.js</td><td>1.0.1</td><td>Roberto Montresor</td></tr>
 					  <tr><td>bootbox.js</td><td>4.4.0</td><td>Nick Payne</td></tr>
