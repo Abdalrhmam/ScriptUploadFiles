@@ -25,6 +25,23 @@
 - وضع حدود للتحميل
 - دعم المتصفح انترنت اكسبلورر 8
 
+# اعدادات 
+###### `config.php`
+```php
+define('dbhost','localhost'); 
+define('dbuser','root'); 
+define('dbpass',''); 
+define('dbname','db_uploads'); 
+//false-true
+define('FooterInfo',false); // تمكين معلومات الرفع والحجم وعدد الملفات للجميع
+define('animated',true); //  تمكين التاثيرات
+define('EnableLogo',false); // تمكين الشعار
+define('UpdateBrowser',true); // ie8=< رسالة تنبيه في المتصفحات القديمة
+define('EnableCaptcha',false); // للحماية من السبام
+define('EnableComments',true); // تفعيل التعليقات
+define('DirectoryChanged',false); // تنبيه عند حدوث تغيير في المسار
+```
+
 # صور 
 ###### `جوال`
 ![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/Android-screencapture.png)
@@ -34,3 +51,6 @@
 
 ###### `كمبيوتر محمول`
 ![alt tag](https://raw.githubusercontent.com/onexite/ScriptUploadFiles/master/MacBook-screencapture.png)
+
+# Download
+##### [اضغط هنا لتحميل اخر نسخة](https://github.com/onexite/ScriptUploadFiles/archive/master.zip)
