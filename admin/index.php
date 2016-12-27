@@ -131,7 +131,9 @@ print '<pre style="text-align: left;direction: ltr; ">' . print_r(get_defined_va
   <link rel="stylesheet" type="text/css" href="../assets/css/fontello.min.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-toggle.min.css">  
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-checkbox.min.css">
-  
+  <?php if(!IsIeBrowser()){ ?>  
+  <link rel="stylesheet" type="text/css" href="../assets/css/audioplayer.min.css">
+  <?php }?>  
   <?php if(isset($_GET['comments']) || isset($_GET['settings']) || isset($_GET['publicity']) || isset($_GET['plans']) || isset($_GET['users']) || isset($_GET['folders']) || isset($_GET['reports']) ) { ?>  
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-tagsinput.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-select.min.css">
@@ -199,6 +201,9 @@ print '<pre style="text-align: left;direction: ltr; ">' . print_r(get_defined_va
   <script src="../assets/js/bootbox.min.js" type="text/javascript"></script>
   <script src="../assets/js/bootstrap-show-password.min.js" type="text/javascript"></script>
   <script src="../assets/js/bootstrap-maxlength.min.js" type="text/javascript"></script>
+  <?php if(!IsIeBrowser()){ ?>  
+  <script src="../assets/js/audioplayer.min.js" type="text/javascript"></script>
+  <?php }?>  
   <script src="../assets/js/global.min.js" type="text/javascript"></script>
   
   

@@ -444,6 +444,7 @@ define('EnableLogo',false);
 define('UpdateBrowser',true); // ie8=< message
 define('EnableCaptcha',false);
 define('EnableComments',false);
+define('DirectoryChanged',false);
 
 /*define('MainTitle','اكتب هنا اسم موقعك');*/\r\n"
 .'$supportedLangs  '."= array('ar','en','') ;\r\n"	

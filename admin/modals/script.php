@@ -423,6 +423,8 @@ if (typeof(FilesTotal)==='undefined') FilesTotal = 1;
 			$('#media').show();
 			$("#player").html('<source src="'+strSRC+'"></source>');	
 			$('#player').load();
+			if(!IsIeBrowser)
+			$('audio').audioPlayer();
 		}
 			
 			
@@ -529,7 +531,8 @@ $('#page_name').on('change', function () {
 	});
 		
 	}
-	
+	//if ( $('audio').length )
+		
 	$('.search-panel .dropdown-menu').find('a').click(function(e) {
 		e.preventDefault();
 		var param = $(this).attr("href").replace("#","");

@@ -116,6 +116,7 @@ else
 		 </div>
 		 </td>
       </tr>';
+
 	  if((IsAdmin || statistics) && ($info["download"]>0) && ($info["stats"]>0))
 	 echo 
       '<tr>

@@ -459,7 +459,7 @@ function get_main_title($_param ='') {
     if(isset($_GET[$_param.'download']) && (isset($_GET['confirm']) || isset($_GET['notfound'])) )
 	    return $lang[198] ;
  	elseif(isset($_GET[$_param.'plans'])) 
-	    return $lang[229] ;
+	    return $lang[230] ;
  	elseif(isset($_GET[$_param.'download'])) 
 		return $lang[31] ;
 	elseif(isset($_GET[$_param.'files']) )
