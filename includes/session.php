@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-(substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ? ob_start("ob_gzhandler"): ob_start();
+(substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') && function_exists('ini_get') && (strtolower(ini_get('zlib.output_compression'))=='off')) ? ob_start("ob_gzhandler"): ob_start();
 
 (defined('BodyColor')) ? $_SESSION['settings']['color'] = substr(BodyColor, 1, 6) : '';
 

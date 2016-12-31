@@ -451,7 +451,6 @@ define('DirectoryChanged',false);
 .'$_plans          '."= array('0'=>'free','1'=>'premium','2'=>'gold','3'=>'register');\r\n"	
 .'$currentpage     '."= 1 ;\r\n"
 .'$totalpages      '."= 1 ;\r\n
-
 ?>";
 fwrite($fp,$content);
 fclose($fp);}
